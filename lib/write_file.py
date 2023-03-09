@@ -7,9 +7,7 @@ def generate_file(matrix, snake_num):
         rows.append({
             "col_partenza": 0,
             "row_partenza": 0,
-            "mov": ["C"],
-            "spawn_x": "",
-            "spawn_y": ""
+            "mov": ["C"]
         })
 
     i = 0
@@ -23,8 +21,8 @@ def generate_file(matrix, snake_num):
                     rows[i_parsed]["col_partenza"] = i
                     rows[i_parsed]["row_partenza"] = j
                 if (row["worm"]):
-                    rows[i_parsed]["spawn_x"] = row["worm_out"][0]
-                    rows[i_parsed]["spawn_y"] = row["worm_out"][1]
+                    rows[i_parsed]["mov"].append(row["worm_out"][0])
+                    rows[i_parsed]["mov"].append(row["worm_out"][1])
 
     return rows
 
@@ -48,7 +46,7 @@ def write_file(final_dict, filename):
 
     f = open(filename, 'a')
     for line in final_dict:
-        f.write(str(line["col_partenza"]) + " " + str(line["row_partenza"]) + " " + listToString(line["mov"]) + " " + str(line["spawn_x"]) + " " +  str(line["spawn_y"]))
+        f.write(str(line["col_partenza"]) + " " + str(line["row_partenza"]) + " " + listToString(line["mov"]))
         f.write('\n')
 
     f.close()
