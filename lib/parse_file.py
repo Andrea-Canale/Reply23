@@ -51,3 +51,20 @@ def parse_matrix(lines):
         i += 1
 
     return matrix
+
+def max_coordinate(matrix):
+    i=0
+    j=0
+    x_max=0
+    y_max=0
+    n_max=0
+    for row in matrix:
+        for cel in row:
+            if cel['value']!="*" and cel['value']>n_max and cel['snake']==0:
+                n_max = cel['value']
+                x_max = j
+                y_max = i
+            j+=1
+        i+=1
+    max = [x_max, y_max]
+    return max
