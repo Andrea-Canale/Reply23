@@ -16,5 +16,8 @@ def write_matrix_to_file(filename, matrix, snake_num):
             if(row["snake"] != 0):
                 i_parsed = int(row["snake"])
                 rows[i_parsed]["mov"].append(row["cmd"])
-                
+                if(row["first_cell"]):
+                    rows[i_parsed]["col_partenza"] = i
+                    rows[i_parsed]["row_partenza"] = j
     print(rows)
+    return rows

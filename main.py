@@ -6,4 +6,5 @@ lines_snacks = parser.open_line_snacks("example.txt")
 snacks = parser.parse_snacks(lines_snacks)
 matrix = parser.parse_matrix(lines_matrix)
 
-writer.write_matrix_to_file("matrix.txt", matrix, 5)
+print(matrix)
+# writer.write_matrix_to_file("matrix.txt", matrix, 5)
