@@ -37,7 +37,8 @@ def parse_matrix(lines):
                 "snake": 0,
                 "cmd": '',
                 "worm": is_warm,
-                "worm_out": []
+                "worm_out": [],
+                "first_cell": False
             }
             j += 1
         j = 0
