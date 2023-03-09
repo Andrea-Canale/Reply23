@@ -8,8 +8,8 @@ def generate_file(matrix, snake_num):
             "col_partenza": 0,
             "row_partenza": 0,
             "mov": ["C"],
-            "spawn_x": 0,
-            "spawn_y": 0
+            "spawn_x": "",
+            "spawn_y": ""
         })
 
     i = 0
