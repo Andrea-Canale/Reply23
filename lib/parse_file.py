@@ -29,15 +29,22 @@ def parse_matrix(lines):
     
     i = 0
     j = 0
-    for matrix_element in matrix:
+    for matrix_element in matrix:       #gubbo e stato qui anche se non ha fatto nientee
         for line in matrix_element:
             is_warm = matrix[i][j] == '*'
+            value = ''
+            if matrix[i][j].replace("\n", "") != '*':
+                value = int(matrix[i][j].replace("\n", ""))
+            else:
+                value = matrix[i][j].replace("\n", "") 
+
             matrix[i][j] = {
-                "value": matrix[i][j].replace("\n", ""),
+                "value": value,
                 "snake": 0,
                 "cmd": '',
                 "worm": is_warm,
-                "worm_out": []
+                "worm_out": [],
+                "first_cell": False
             }
             j += 1
         j = 0

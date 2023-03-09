@@ -1,4 +1,5 @@
 import lib.parse_file as parser
+import lib.write_file as writer
 
 lines_matrix = parser.open_line_matrix("example.txt")
 lines_snacks = parser.open_line_snacks("example.txt")
