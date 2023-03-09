@@ -4,8 +4,8 @@ import prima_linea as dati
 lines_matrix = parser.open_line_matrix("../example.txt")
 matrix = parser.parse_matrix(lines_matrix)
 [C, R, S] = dati.parse_size("../example.txt")
-#lines_snakes = parser.open_line_snacks("../example.txt")
-#snakes = parser.parse_snacks(lines_snakes)
+lines_snakes = parser.open_line_snacks("../example.txt")
+snakes = parser.parse_snacks(lines_snakes)
 
 def is_empty(r, c):
     return matrix[r][c]['snake'] == 0
@@ -66,7 +66,26 @@ def next_hop(r, c, l):
     celle[1]['val'] = matrix[celle[1]['coord'][0]][celle[1]['coord'][1]]['value']
     celle[2]['val'] = matrix[celle[2]['coord'][0]][celle[2]['coord'][1]]['value']
     celle[3]['val'] = matrix[celle[3]['coord'][0]][celle[3]['coord'][1]]['value']
-    print(celle)
     
+    max = -1
+    index = 0
+    for i in range(4):
+        if celle[i]['val'] > max:
+            max = celle[i]['val']
+            index = i
+    return celle[index]['coord']
 
-next_hop(5, 9, 0)
+
+def fill(r, c, sn):
+    print(r, c)
+    matrix[r][c]['snake'] = sn
+
+cont = 1
+for i in snakes:
+    [c, r] = parser.max_coordinate(matrix)
+    for j in range(int(i)):
+        fill(r, c, cont)
+        [r, c] = next_hop(r, c, 0)
+        print(r, c)
+    cont += 1
+    print("\n\n")

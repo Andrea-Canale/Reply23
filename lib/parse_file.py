@@ -36,7 +36,7 @@ def parse_matrix(lines):
             if matrix[i][j].replace("\n", "") != '*':
                 value = int(matrix[i][j].replace("\n", ""))
             else:
-                value = matrix[i][j].replace("\n", "") 
+                value = -1 
 
             matrix[i][j] = {
                 "value": value,
