@@ -26,7 +26,6 @@ def generate_file(matrix, snake_num):
                     rows[i_parsed]["spawn_x"] = row["worm_out"][0]
                     rows[i_parsed]["spawn_y"] = row["worm_out"][1]
 
-    print(rows)
     return rows
 
 def listToString(s):
