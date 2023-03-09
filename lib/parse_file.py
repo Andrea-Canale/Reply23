@@ -31,7 +31,14 @@ def parse_matrix(lines):
     j = 0
     for matrix_element in matrix:
         for line in matrix_element:
-            matrix[i][j] = matrix[i][j].replace("\n", "")
+            is_warm = matrix[i][j] == '*'
+            matrix[i][j] = {
+                "value": matrix[i][j].replace("\n", ""),
+                "snack": 0,
+                "cmd": '',
+                "warm": is_warm,
+                "warm_out": []
+            }
             j += 1
         j = 0
         i += 1
